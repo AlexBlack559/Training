@@ -4,6 +4,9 @@ package pro.alexblack;
  Написать программу, которая принимает 2 точки прямоугольника (диагональ) и возвращает его площадь (возвращаемый тип: double).
 */
 
+import pro.alexblack.geometry.Point;
+import pro.alexblack.geometry.Rect;
+
 public class Task1 {
 
     public static void main(String[] args) {

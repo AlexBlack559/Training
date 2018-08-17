@@ -1,4 +1,4 @@
-package pro.alexblack;
+package pro.alexblack.geometry;
 
 public class Size {
     private int width;

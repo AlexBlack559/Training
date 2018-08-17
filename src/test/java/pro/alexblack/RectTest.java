@@ -1,6 +1,9 @@
 package pro.alexblack;
 
 import org.junit.jupiter.api.Test;
+import pro.alexblack.geometry.Point;
+import pro.alexblack.geometry.Rect;
+import pro.alexblack.geometry.Size;
 
 import static org.junit.jupiter.api.Assertions.*;
 

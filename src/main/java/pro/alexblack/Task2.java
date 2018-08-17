@@ -8,6 +8,6 @@ package pro.alexblack;
 public class Task2 {
 
     public static void main(String[] args) {
-
+        
     }
 }

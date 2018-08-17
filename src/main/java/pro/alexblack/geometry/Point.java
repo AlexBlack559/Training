@@ -1,6 +1,4 @@
-package pro.alexblack;
-
-import java.util.Objects;
+package pro.alexblack.geometry;
 
 public class Point {
     private int x, y;
