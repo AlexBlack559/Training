@@ -8,7 +8,6 @@ public class CommandFactory {
         this.command = command;
     }
 
-    // TODO: Add default statement
     public Command getCommand() throws NoSuchCommandException {
         Command result;
 

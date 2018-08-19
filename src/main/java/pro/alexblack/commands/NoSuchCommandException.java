@@ -11,4 +11,9 @@ public class NoSuchCommandException extends Exception {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String getMessage() {
+        return "Команды " + name + " не существет.";
+    }
 }

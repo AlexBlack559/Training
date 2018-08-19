@@ -28,11 +28,7 @@ public class Task3 {
             try {
                 Command command = factory.getCommand();
                 command.execute(arguments);
-            } catch (IOException e) {
-                System.out.println(e.getLocalizedMessage());
-            } catch (NoSuchCommandException e) {
-                System.out.println("Такой комманды не существет");
-            } catch (IllegalArgumentException e) {
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
