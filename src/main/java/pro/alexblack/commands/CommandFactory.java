@@ -4,16 +4,17 @@ public class CommandFactory {
 
     private String command;
 
-    CommandFactory(String command) {
+    public CommandFactory(String command) {
         this.command = command;
     }
 
-    Command getCommand() {
-        Command result = null;
+    // TODO: Add default statement
+    public Command getCommand() throws NoSuchCommandException {
+        Command result;
 
         switch (command) {
             case "mv": result = new Rename(); break;
-            default: break;
+            default: throw new NoSuchCommandException(command);
         }
 
         return result;

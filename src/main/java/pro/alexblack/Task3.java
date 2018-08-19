@@ -2,6 +2,7 @@ package pro.alexblack;
 
 import pro.alexblack.commands.*;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 /*
@@ -14,8 +15,26 @@ public class Task3 {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Пожалуйста введите комманду, или help для получения информации о текущих коммандах");
+        System.out.println("Для выхда наберите exit");
 
-        String[] commands = scanner.nextLine().split(" ");
+        while (true) {
+            String[] arguments = scanner.nextLine().split(" ");
+            if (arguments[0].equals("exit")) {
+                break;
+            }
 
+            CommandFactory factory = new CommandFactory(arguments[0]);
+
+            try {
+                Command command = factory.getCommand();
+                command.execute(arguments);
+            } catch (IOException e) {
+                System.out.println(e.getLocalizedMessage());
+            } catch (NoSuchCommandException e) {
+                System.out.println("Такой комманды не существет");
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 }
