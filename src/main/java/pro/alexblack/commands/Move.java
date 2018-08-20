@@ -6,7 +6,7 @@ import java.nio.file.*;
 public class Move implements Command {
 
     @Override
-    public void execute(Path currentPath, String... args) throws IOException {
+    public Path execute(Path currentPath, String... args) throws IOException {
         if (args.length != 3) {
             // Runtime exceptions does work for us in this case? (If we do not handle them usually)
             // Should we throw custom Exception?
@@ -21,6 +21,8 @@ public class Move implements Command {
         } else {
             throw new IllegalArgumentException("Такого пути не существует: " + sourcePath.toString());
         }
+
+        return currentPath;
     }
 
     @Override

@@ -5,6 +5,6 @@ import java.nio.file.Path;
 
 public interface Command {
 
-    void execute(Path currentPath, String... args) throws IOException;
+    Path execute(Path currentPath, String... args) throws IOException;
     String getName();
 }

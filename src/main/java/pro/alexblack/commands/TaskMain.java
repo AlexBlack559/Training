@@ -14,15 +14,15 @@ public class TaskMain {
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Пожалуйста введите комманду, или help для получения информации о текущих коммандах");
-        System.out.println("Для выхда наберите exit");
+        System.out.println("Пожалуйста введите комманду из списка комманд файла README.md.");
+        System.out.println("Для выхда введите exit.");
 
         Path currentPath = Paths.get("").toAbsolutePath();
 
         while (true) {
             System.out.println();
             System.out.print(currentPath.getFileName().toString() + " $> ");
-            String[] arguments = scanner.next().split(" ");
+            String[] arguments = scanner.nextLine().split(" ");
             if (arguments[0].equals("exit")) {
                 break;
             }
@@ -30,8 +30,8 @@ public class TaskMain {
             CommandFactory factory = new CommandFactory(arguments[0]);
 
             try {
-                Command command = factory.getCommand();
-                command.execute(currentPath, arguments);
+                Command command = factory.getCommandName();
+                currentPath = command.execute(currentPath, arguments);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }

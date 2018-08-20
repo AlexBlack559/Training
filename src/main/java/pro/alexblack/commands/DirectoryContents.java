@@ -8,7 +8,7 @@ import java.util.List;
 public class DirectoryContents implements Command {
 
     @Override
-    public void execute(Path currentPath, String... args) throws IOException {
+    public Path execute(Path currentPath, String... args) throws IOException {
         if (args.length != 1) {
             // Runtime exceptions does work for us in this case? (If we do not handle them usually)
             // Should we throw custom Exception?
@@ -26,6 +26,8 @@ public class DirectoryContents implements Command {
         for (Path path : paths) {
             System.out.println(currentPath.relativize(path).toString());
         }
+
+        return currentPath;
     }
 
     @Override

@@ -2,19 +2,20 @@ package pro.alexblack.commands;
 
 public class CommandFactory {
 
-    private String command;
+    private String commandName;
 
-    public CommandFactory(String command) {
-        this.command = command;
+    public CommandFactory(String commandName) {
+        this.commandName = commandName;
     }
 
-    public Command getCommand() throws NoSuchCommandException {
+    public Command getCommandName() throws NoSuchCommandException {
         Command result;
 
-        switch (command) {
+        switch (commandName) {
             case "ls": result = new DirectoryContents(); break;
+            case "cd": result = new ChangeDirectory(); break;
             case "mv": result = new Move(); break;
-            default: throw new NoSuchCommandException(command);
+            default: throw new NoSuchCommandException(commandName);
         }
 
         return result;
