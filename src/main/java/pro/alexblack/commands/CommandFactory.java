@@ -12,7 +12,8 @@ public class CommandFactory {
         Command result;
 
         switch (command) {
-            case "mv": result = new Rename(); break;
+            case "ls": result = new DirectoryContents(); break;
+            case "mv": result = new Move(); break;
             default: throw new NoSuchCommandException(command);
         }
 

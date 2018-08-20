@@ -1,10 +1,10 @@
 package pro.alexblack.commands;
 
 import java.io.IOException;
+import java.nio.file.Path;
 
 public interface Command {
 
-    void execute(String... args) throws IOException;
+    void execute(Path currentPath, String... args) throws IOException;
     String getName();
-    String getDescription();
 }

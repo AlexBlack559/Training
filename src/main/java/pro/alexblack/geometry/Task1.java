@@ -1,4 +1,4 @@
-package pro.alexblack;
+package pro.alexblack.geometry;
 
 import pro.alexblack.geometry.Point;
 import pro.alexblack.geometry.Rect;
