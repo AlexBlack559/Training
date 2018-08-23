@@ -1,9 +1,9 @@
-package pro.alexblack.commands;
+package pro.alexblack.CommandApp.commands;
 
 import java.io.IOException;
 import java.nio.file.*;
 
-public class Move implements Command {
+public class MoveFile implements Command {
 
     @Override
     public Path execute(Path currentPath, String... args) throws IOException {

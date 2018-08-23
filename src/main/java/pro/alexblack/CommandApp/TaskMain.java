@@ -1,4 +1,6 @@
-package pro.alexblack.commands;
+package pro.alexblack.CommandApp;
+
+import pro.alexblack.CommandApp.commands.*;
 
 import java.io.IOException;
 import java.nio.file.Path;

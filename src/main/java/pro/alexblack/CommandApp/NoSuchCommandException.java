@@ -1,10 +1,10 @@
-package pro.alexblack.commands;
+package pro.alexblack.CommandApp;
 
 public class NoSuchCommandException extends Exception {
 
     private String name;
 
-    NoSuchCommandException(String commandName) {
+    public NoSuchCommandException(String commandName) {
         this.name = commandName;
     }
 

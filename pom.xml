@@ -30,8 +30,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>pro.alexblack.commands.TaskMain</mainClass>
-                    <!--<executable>iTerm</executable>-->
+                    <mainClass>pro.alexblack.CommandApp.TaskMain</mainClass>
                 </configuration>
             </plugin>
         </plugins>
