@@ -1,29 +1,23 @@
-package pro.alexblack.CommandApp.commands;
+package pro.alexblack.commandapp.commands;
 
-import java.io.IOException;
+import pro.alexblack.commandapp.exceptions.NoSuchDirectoryException;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class ChangeDirectory implements Command {
+public class ChangeDirectory extends Command {
 
     @Override
-    public Path execute(Path currentPath, String... args) throws IOException {
+    public void execute(String[] args) throws Exception {
         if (args.length != 2) {
             throw new IllegalArgumentException("Для этой комманды необходим 1 аргумент.");
         }
 
-        Path destinationPath = currentPath.resolve(args[1]);
+        Path destinationPath = delegate.getCurrentPath().resolve(args[1]).normalize();
         if (Files.isDirectory(destinationPath)) {
-            return destinationPath.normalize();
+            delegate.setCurrentPath(destinationPath);
         } else {
-            // Throw error?
-            System.out.println("Такой директории не существует.");
-            return currentPath;
+            throw new NoSuchDirectoryException("Такой директории не существует.");
         }
-    }
-
-    @Override
-    public String getName() {
-        return "cd";
     }
 }

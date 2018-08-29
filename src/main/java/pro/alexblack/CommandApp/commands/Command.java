@@ -1,10 +1,14 @@
-package pro.alexblack.CommandApp.commands;
+package pro.alexblack.commandapp.commands;
 
-import java.io.IOException;
-import java.nio.file.Path;
+import pro.alexblack.commandapp.PathDelegate;
 
-public interface Command {
+public abstract class Command {
 
-    Path execute(Path currentPath, String... args) throws IOException;
-    String getName();
+    protected PathDelegate delegate;
+
+    void setDelegate(PathDelegate delegate) {
+        this.delegate = delegate;
+    }
+
+    public abstract void execute(String[] args) throws Exception;
 }

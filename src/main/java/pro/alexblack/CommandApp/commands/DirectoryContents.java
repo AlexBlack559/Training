@@ -1,14 +1,14 @@
-package pro.alexblack.CommandApp.commands;
+package pro.alexblack.commandapp.commands;
 
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DirectoryContents implements Command {
+public class DirectoryContents extends Command {
 
     @Override
-    public Path execute(Path currentPath, String... args) throws IOException {
+    public void execute(String[] args) throws IOException {
         if (args.length != 1) {
             // Runtime exceptions does work for us in this case? (If we do not handle them usually)
             // Should we throw custom Exception?
@@ -16,6 +16,7 @@ public class DirectoryContents implements Command {
         }
 
         List<Path> paths = new ArrayList<>();
+        Path currentPath = delegate.getCurrentPath();
 
         try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(currentPath, "[!.]*")) {
             for (Path path : directoryStream) {
@@ -26,13 +27,6 @@ public class DirectoryContents implements Command {
         for (Path path : paths) {
             System.out.println(currentPath.relativize(path).toString());
         }
-
-        return currentPath;
-    }
-
-    @Override
-    public String getName() {
-        return "ls";
     }
 
 }

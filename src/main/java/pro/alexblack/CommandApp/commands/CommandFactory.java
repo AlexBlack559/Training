@@ -1,16 +1,17 @@
-package pro.alexblack.CommandApp.commands;
+package pro.alexblack.commandapp.commands;
 
-import pro.alexblack.CommandApp.NoSuchCommandException;
+import pro.alexblack.commandapp.PathDelegate;
+import pro.alexblack.commandapp.exceptions.NoSuchCommandException;
 
 public class CommandFactory {
 
-    private String commandName;
+    private PathDelegate delegate;
 
-    public CommandFactory(String commandName) {
-        this.commandName = commandName;
+    public CommandFactory(PathDelegate delegate) {
+        this.delegate = delegate;
     }
 
-    public Command getCommandName() throws NoSuchCommandException {
+    public Command getCommand(String commandName) throws NoSuchCommandException {
         Command result;
 
         switch (commandName) {
@@ -21,6 +22,8 @@ public class CommandFactory {
             case "pwd": result = new CurrentDirectoryPath(); break;
             default: throw new NoSuchCommandException(commandName);
         }
+
+        result.setDelegate(delegate);
 
         return result;
     }

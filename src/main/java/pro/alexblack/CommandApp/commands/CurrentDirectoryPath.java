@@ -1,18 +1,12 @@
-package pro.alexblack.CommandApp.commands;
+package pro.alexblack.commandapp.commands;
 
 import java.io.IOException;
 import java.nio.file.Path;
 
-public class CurrentDirectoryPath implements Command {
+public class CurrentDirectoryPath extends Command {
 
     @Override
-    public Path execute(Path currentPath, String... args) throws IOException {
-        System.out.println(currentPath.toString());
-        return currentPath;
-    }
-
-    @Override
-    public String getName() {
-        return "pwd";
+    public void execute(String[] args) {
+        System.out.println(delegate.getCurrentPath().toString());
     }
 }

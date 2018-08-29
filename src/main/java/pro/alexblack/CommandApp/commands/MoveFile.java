@@ -1,15 +1,12 @@
-package pro.alexblack.CommandApp.commands;
+package pro.alexblack.commandapp.commands;
 
-import java.io.IOException;
 import java.nio.file.*;
 
-public class MoveFile implements Command {
+public class MoveFile extends Command {
 
     @Override
-    public Path execute(Path currentPath, String... args) throws IOException {
+    public void execute(String[] args) throws Exception {
         if (args.length != 3) {
-            // Runtime exceptions does work for us in this case? (If we do not handle them usually)
-            // Should we throw custom Exception?
             throw new IllegalArgumentException("Для этой комманды необходимо 2 аргумента.");
         }
 
@@ -22,11 +19,5 @@ public class MoveFile implements Command {
             throw new IllegalArgumentException("Такого пути не существует: " + sourcePath.toString());
         }
 
-        return currentPath;
-    }
-
-    @Override
-    public String getName() {
-        return "mv";
     }
 }

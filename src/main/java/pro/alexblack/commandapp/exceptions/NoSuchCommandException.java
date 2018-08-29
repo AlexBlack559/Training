@@ -1,4 +1,4 @@
-package pro.alexblack.CommandApp;
+package pro.alexblack.commandapp.exceptions;
 
 public class NoSuchCommandException extends Exception {
 
