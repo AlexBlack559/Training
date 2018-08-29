@@ -14,7 +14,7 @@ public class SocketApp {
             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
             BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-            String name = "Aleksandr,Chernyi\n";
+            String name = "Chernyi,Aleksandr\n";
             dos.writeBytes(name);
             dos.flush();
 
